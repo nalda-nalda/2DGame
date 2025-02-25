@@ -1,4 +1,4 @@
-# 유니티 불필요한 폴더 & 파일 제외
+# Unity-specific files
 [Ll]ibrary/
 [Tt]emp/
 [Bb]uild/
@@ -9,7 +9,7 @@
 MemoryCaptures/
 Packages/com.unity.package-manager.cache/
 
-# 빌드 결과물 제외
+# Build results
 *.apk
 *.aab
 *.unitypackage
@@ -21,11 +21,11 @@ Packages/com.unity.package-manager.cache/
 *.ilk
 *.manifest
 
-# OS별 불필요한 파일 제외
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Visual Studio 관련 파일 제외
+# Visual Studio files
 *.sln
 *.csproj
 *.unityproj
