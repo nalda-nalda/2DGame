@@ -1,0 +1,39 @@
+# 유니티 불필요한 폴더 & 파일 제외
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Oo]bj/
+[Uu]serSettings/
+MemoryCaptures/
+Packages/com.unity.package-manager.cache/
+
+# 빌드 결과물 제외
+*.apk
+*.aab
+*.unitypackage
+*.exe
+*.app
+*.so
+*.dll
+*.pdb
+*.ilk
+*.manifest
+
+# OS별 불필요한 파일 제외
+.DS_Store
+Thumbs.db
+
+# Visual Studio 관련 파일 제외
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.user
+*.vcxproj
+*.pidb
+*.svd
+*.mode1v3
+*.mode2v3
+*.solutioninfo
