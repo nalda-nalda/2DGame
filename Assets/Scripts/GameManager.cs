@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public QuestManager questManager;
     public Animator talkPanel;
     public Animator portraitAnim;
-    public TextMeshProUGUI talkText;
+    public TypeEffect talk;
     public Image portraitImg;
     public GameObject scanObject;
     public bool isAction;
@@ -34,8 +34,17 @@ public class GameManager : MonoBehaviour
 
     void Talk(int id, bool isNpc)
     {
-        int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        int questTalkIndex = 0;
+        string talkData = "";
+
+        if(talk.isAnim){
+            talk.SetMsg("");
+            return;
+        } else{
+            questTalkIndex = questManager.GetQuestTalkIndex(id);
+            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+
+        }
 
         if (talkData == null)
         {
@@ -46,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
         if (isNpc)
         {
-            talkText.text = talkData.Split(":")[0];
+            talk.SetMsg(talkData.Split(":")[0]);
 
             portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(":")[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
@@ -58,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
             portraitImg.color = new Color(1, 1, 1, 0);
         }
 
