@@ -63,14 +63,4 @@ public class GameManager : MonoBehaviour
         isAction = true;
         talkIndex++;
     }
-
-
-    // void Update()
-    // {
-    //     if (isAction && Input.GetKeyDown(KeyCode.Escape))
-    //     {
-    //         isAction = false;
-    //         talkPanel.SetActive(false);
-    //     }
-    // }
 }
