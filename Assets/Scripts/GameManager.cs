@@ -32,11 +32,13 @@ public class GameManager : MonoBehaviour
         talkPanel.SetBool("isShow", isAction);
     }
 
-    void Talk(int id, bool isNpc){
+    void Talk(int id, bool isNpc)
+    {
         int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData =  talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
 
-        if(talkData == null){
+        if (talkData == null)
+        {
             isAction = false;
             talkIndex = 0;
             Debug.Log(questManager.CheckQuest(id));
@@ -49,18 +51,19 @@ public class GameManager : MonoBehaviour
             portraitImg.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(":")[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
             if (prevPortait != portraitImg.sprite)
-                {
-                    portraitAnim.SetTrigger("doEffect");
-                    prevPortait = portraitImg.sprite;
-                }
+            {
+                portraitAnim.SetTrigger("doEffect");
+                prevPortait = portraitImg.sprite;
+            }
         }
         else
         {
             talkText.text = talkData;
             portraitImg.color = new Color(1, 1, 1, 0);
         }
-        
+
         isAction = true;
         talkIndex++;
+        
     }
 }
