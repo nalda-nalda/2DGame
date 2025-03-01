@@ -13,14 +13,30 @@ public class GameManager : MonoBehaviour
     public Animator portraitAnim;
     public TypeEffect talk;
     public Image portraitImg;
+    public TextMeshProUGUI questTalk;
+    public GameObject menuSet;
     public GameObject scanObject;
+    public GameObject player;
     public bool isAction;
     public int talkIndex;
     public Sprite prevPortait;
 
     void Start()
     {
-        Debug.Log(questManager.CheckQuest());
+        GameLoad();
+        questTalk.text = questManager.CheckQuest();
+    }
+
+    void Update()
+    {
+        
+        if(Input.GetButtonDown("Cancel")){
+            if(menuSet.activeSelf){
+                menuSet.SetActive(false);
+            }else {
+                menuSet.SetActive(true);
+            }
+        }
     }
     public void Action(GameObject scanObj)
     {
@@ -50,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
-            Debug.Log(questManager.CheckQuest(id));
+            questTalk.text = questManager.CheckQuest(id);
             return;
         }
         if (isNpc)
@@ -74,5 +90,34 @@ public class GameManager : MonoBehaviour
         isAction = true;
         talkIndex++;
         
+    }
+
+    public void GameSave(){
+        PlayerPrefs.SetFloat("PlayerX",player.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY",player.transform.position.y);
+        PlayerPrefs.SetInt("QuestId",questManager.questId);
+        PlayerPrefs.SetInt("QusetActionIndex",questManager.questActionIndex);
+        PlayerPrefs.Save();
+
+        menuSet.SetActive(false);
+
+    }
+    public void GameLoad(){
+        if(!PlayerPrefs.HasKey("PlayerX")){
+            return;
+        }
+        
+        float x = PlayerPrefs.GetFloat("PlayerX");
+        float y = PlayerPrefs.GetFloat("PlayerY");
+        int questId = PlayerPrefs.GetInt("QuestId");
+        int questActionIndex = PlayerPrefs.GetInt("QuestActionIndex");
+
+        player.transform.position = new Vector3(x,y,0);
+        questManager.questId = questId;
+        questManager.questActionIndex = questActionIndex;
+        questManager.ControlObject();
+    }
+    public void GameExit(){
+        Application.Quit();
     }
 }

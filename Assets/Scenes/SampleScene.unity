@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 232870405}
   - component: {fileID: 232870404}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 232870405}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1932968839}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &232870405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3170,7 +3182,7 @@ GameObject:
   - component: {fileID: 1133452464}
   - component: {fileID: 1133452463}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3239,7 +3251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1133452464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1932968839}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1133452464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,7 +3449,7 @@ GameObject:
   - component: {fileID: 1203607775}
   - component: {fileID: 1203607774}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3494,7 +3518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1203607775}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1729472820}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1203607775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6323,7 +6359,7 @@ GameObject:
   - component: {fileID: 1417494745}
   - component: {fileID: 1417494744}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: QuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6343,10 +6379,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1279632153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417494744
 MonoBehaviour:
@@ -7411,7 +7447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1729472821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8088,7 +8124,10 @@ MonoBehaviour:
   portraitAnim: {fileID: 1282190432}
   talk: {fileID: 1850169950}
   portraitImg: {fileID: 1282190430}
+  questTalk: {fileID: 1417494744}
+  menuSet: {fileID: 1729472820}
   scanObject: {fileID: 0}
+  player: {fileID: 1263928505}
   isAction: 0
   talkIndex: 0
   prevPortait: {fileID: 0}
